@@ -12,8 +12,8 @@
    <Setter Property="CaretBrush" Value="#F97316"/>
    <Setter Property="BorderBrush" Value="#263143"/>
    <Setter Property="BorderThickness" Value="1"/>
-   <Setter Property="Padding" Value="10,7"/>
-   <Setter Property="Height" Value="36"/>
+   <Setter Property="Padding" Value="10,2"/>
+   <Setter Property="Height" Value="38"/>
    <Setter Property="FontSize" Value="13"/>
    <Setter Property="VerticalContentAlignment" Value="Center"/>
    <Setter Property="Template">
@@ -23,7 +23,8 @@
               BorderBrush="{TemplateBinding BorderBrush}"
               BorderThickness="{TemplateBinding BorderThickness}"
               CornerRadius="7" SnapsToDevicePixels="True">
-       <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+       <ScrollViewer x:Name="PART_ContentHost" Margin="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                     HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
       </Border>
       <ControlTemplate.Triggers>
        <Trigger Property="IsKeyboardFocused" Value="True">
@@ -159,18 +160,18 @@
      <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-     <ColumnDefinition Width="125"/>
+     <ColumnDefinition Width="112"/>
      <ColumnDefinition Width="*"/>
-     <ColumnDefinition Width="138"/>
+     <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>
 
     <TextBlock Grid.Row="0" Grid.Column="0" Text="Gói game:" VerticalAlignment="Center" Foreground="#CBD5E1" FontSize="13" FontWeight="Medium"/>
     <TextBox x:Name="PackageTextBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource ModernTextBox}"/>
-    <Button x:Name="BrowsePackageButton" Grid.Row="0" Grid.Column="2" Content="Chọn APK / XAPK" Margin="10,0,0,0" Style="{StaticResource SecondaryButton}" Click="BrowsePackage_Click"/>
+    <Button x:Name="BrowsePackageButton" Grid.Row="0" Grid.Column="2" Content="Chọn APK / XAPK" MinWidth="156" Height="38" Margin="10,0,0,0" Style="{StaticResource SecondaryButton}" Click="BrowsePackage_Click"/>
 
     <TextBlock Grid.Row="1" Grid.Column="0" Text="Thư mục lưu:" VerticalAlignment="Center" Foreground="#CBD5E1" FontSize="13" FontWeight="Medium" Margin="0,10,0,0"/>
     <TextBox x:Name="OutputTextBox" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" Style="{StaticResource ModernTextBox}"/>
-    <Button x:Name="BrowseOutputButton" Grid.Row="1" Grid.Column="2" Content="Chọn thư mục" Margin="10,10,0,0" Style="{StaticResource SecondaryButton}" Click="BrowseOutput_Click"/>
+    <Button x:Name="BrowseOutputButton" Grid.Row="1" Grid.Column="2" Content="Chọn thư mục" MinWidth="156" Height="38" Margin="10,10,0,0" Style="{StaticResource SecondaryButton}" Click="BrowseOutput_Click"/>
 
     <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,7,0,0" FontSize="11.5" Foreground="#64748B"
                Text="Mẹo: Kéo thả file .xapk / .apks / .apk / .zip trực tiếp vào cửa sổ để chọn nhanh."/>
@@ -189,10 +190,14 @@
       <ColumnDefinition Width="*"/>
       <ColumnDefinition Width="Auto"/>
      </Grid.ColumnDefinitions>
-     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-      <Ellipse x:Name="StatusDot" Width="9" Height="9" Fill="#64748B" Margin="0,0,8,0" VerticalAlignment="Center"/>
-      <TextBlock x:Name="StatusText" Text="Sẵn sàng." VerticalAlignment="Center" Foreground="#E2E8F0" FontSize="13" FontWeight="Medium"/>
-     </StackPanel>
+     <Grid Grid.Column="0" Margin="0,0,12,0" VerticalAlignment="Center">
+      <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="Auto"/>
+       <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Ellipse Grid.Column="0" x:Name="StatusDot" Width="9" Height="9" Fill="#64748B" Margin="0,0,8,0" VerticalAlignment="Center"/>
+      <TextBlock Grid.Column="1" x:Name="StatusText" Text="Sẵn sàng." VerticalAlignment="Center" Foreground="#E2E8F0" FontSize="13" FontWeight="Medium" TextTrimming="CharacterEllipsis"/>
+     </Grid>
      <StackPanel Grid.Column="1" Orientation="Horizontal">
       <Button x:Name="ClearLogButton" Content="Xóa log" Style="{StaticResource SecondaryButton}" Click="ClearLog_Click" Margin="0,0,8,0"/>
       <Button x:Name="OpenOutputButton" Content="Mở kết quả" Style="{StaticResource SecondaryButton}" Click="OpenOutput_Click" Margin="0,0,8,0"/>
