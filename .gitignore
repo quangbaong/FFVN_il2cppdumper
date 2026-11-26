@@ -1,0 +1,17 @@
+# Build artifacts
+Source/**/[Bb]in/
+Source/**/[Oo]bj/
+.vs/
+*.user
+*.suo
+
+# Unintended build executables (keep root published FFVN Dumper)
+/*.exe
+/*.pdb
+!/FFVN Dumper.exe
+!/FFVN Dumper.pdb
+
+# Dump & local test outputs
+/Output/
+/PublishOut/
+*.log

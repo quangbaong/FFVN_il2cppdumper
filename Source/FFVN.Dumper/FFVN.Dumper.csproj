@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>FFVN Dumper</AssemblyName>
+    <RootNamespace>FfvnDumper</RootNamespace>
+    <Version>1.0.0</Version>
+    <Company>quangbaong (BANNEI)</Company>
+    <Authors>quangbaong (BANNEI)</Authors>
+    <Copyright>Copyright © 2026 quangbaong (BANNEI)</Copyright>
+    <Product>FFVN Dumper</Product>
+    <Description>Free Fire VN libil2cpp.so (.rodata AES/XOR/16KB unpacker) and metadata v31 IL2CPP dumper.</Description>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Il2CppDumper.Core/Il2CppDumper.Core.csproj" />
+  </ItemGroup>
+</Project>
